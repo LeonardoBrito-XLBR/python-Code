@@ -1,5 +1,5 @@
 nome = 'Carlos'
 idade = 45
 
-print (nome)
+print(f"nome: {nome}")
 print (idade)
