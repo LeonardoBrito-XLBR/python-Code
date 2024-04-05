@@ -1,9 +1,12 @@
 import os
 os.system("cls || clear")
 
-idade : int = 20
+idade = int (input ("Digite a sua idade: "))
 
-if idade > 18:
-    print("Maior Idade")
+if idade < 18 or idade >= 45:
+    print("Pode votar")
+else: 
+    print("NÃO pode votar")
+
 
 print ("=== FIM ===")
