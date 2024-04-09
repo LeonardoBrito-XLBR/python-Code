@@ -31,6 +31,9 @@ if menorNum > n1:
 if menorNum > n2:
     menorNum = n2
 
+#DANDO ESPAÇO
+print ()
+
 #MOSTRANDOS OS RESULTADOS
 print (media)
 print (produto)
