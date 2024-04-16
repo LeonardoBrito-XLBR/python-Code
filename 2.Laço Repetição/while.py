@@ -16,4 +16,13 @@ for i in range (3):
 
 media = soma / 3
 
+if media >= 7:
+    situacao = 'Aprovado'
+
+elif media >= 5:
+    situacao = 'Recuperação'
+else:
+    situacao = 'Reprovado'
+
 print ('A sua media: ', media)
+print (situacao)

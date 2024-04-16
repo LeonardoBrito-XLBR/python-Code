@@ -28,24 +28,27 @@ print ('h       Quociente da divisão\n')
 opcao = input ('O que você quer? ')
 
 #FAZER O IF E ELIF
-match opcao:
-    case 'a':
-        n1 + n2
-    case 'b':
-        n1 - n2
-    case 'c':
-        n1 * n2
-    case 'd':
-        n1 / n2
+while ( opcao )
+    match opcao:
+        case 'a':
+            n1 + n2
+            opcaocorreta = True
+        case 'b':
+            n1 - n2
+            opcaocorreta =
+        case 'c':
+            n1 * n2
+        case 'd':
+            n1 / n2
 
-    case 'e':
-        n1 % n2
-    
-    case 'f':
-        n1 ** n2
-    
-    case 'g':
-        n1 // n2
-    
-    case _:
+        case 'e':
+            n1 % n2
         
+        case 'f':
+            n1 ** n2
+        
+        case 'g':
+            n1 // n2
+        
+        case _:
+            print ('TENTE DE NOVO')
