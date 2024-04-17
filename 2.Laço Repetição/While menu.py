@@ -9,7 +9,7 @@ nota = float ( input ("Digite a sua nota: "))
 
 opcao = input ("\nVc quer adicionar mais um?  ")
 
-while terminar = True: 
+while terminar == True: 
     match opcao:
         case 'S':
             nota = float ( input ("Digite a sua nota: "))

@@ -13,6 +13,7 @@ while (opcao == "sim" ):
     nota = float ( input ("Digite a sua nota: "))
 
     opcao = input ("\nVc quer add mais um? ")
+    
     if opcao != "sim":
         break  
     
