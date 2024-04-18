@@ -20,11 +20,16 @@ while True:
         quantNotas += 1
 
     elif resposta == 'P':
+
+        #SE NENHUMA NOTA FOR DIGITADA        
         if quantNotas == 0:
             print ("Não foram inseridas notas. \n")
+            
+        #SE FOR DIGITADA
         else:
             print (f"Quantidade de notas inseridas: {quantNotas} \n")
     
+
     elif resposta == 'N':
         if quantNotas == 0:
             print ("Não foram inseridas notas. \n")
