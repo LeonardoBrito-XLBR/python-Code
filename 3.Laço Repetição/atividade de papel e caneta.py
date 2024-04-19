@@ -25,7 +25,7 @@ while True: #CONSERTA COM ELSE OU COM O 'N' na opcao
     print ('2\t|Exibir os Resultados')
     print ('3\t|Sair\n')
 
-    opcao = int (input ("O que o você deseja fazer? "))
+    opcao = int (input ("O que o você deseja fazer? oi"))
 
     match opcao:
         case 1:
