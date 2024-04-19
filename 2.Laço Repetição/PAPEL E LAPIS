@@ -1,0 +1,28 @@
+import os
+os. system ("cls || clear")
+#DEFININFO POSSIVEIS VARIAVEIS 
+contador: int = 0
+somatotal: int = 0
+
+while True: #CONSERTA COM ELSE OU COM O 'N' na opcao
+
+    print('REPETINDO....\n')
+    print ('Codigo\t|Descrição')
+    print ('1\t|Adicionar')
+    print ('2\t|Exibir os Resultados')
+    print ('3\t|Sair\n')
+
+    opcao = int (input ("O que o você deseja fazer? "))
+
+    match opcao:
+        case 1:
+            idade = int (input ("Qual a sua idade? "))
+            sexo = input ("Qual o seu sexo? ")
+            salario = float (input ("Qual o seu salario? "))
+            contador += 1
+            somatotal += salario
+
+        case 2:
+            print (contador)
+            print (somatotal)
+            break
