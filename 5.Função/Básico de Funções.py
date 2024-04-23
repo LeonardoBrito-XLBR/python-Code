@@ -3,7 +3,10 @@ os. system ('cls || clear ')
 
 #TUDO SOBRE FUNÇÃO NESSE ARTIGO
 
-# 1º EXEMPLO
+
+
+# 1º EXEMPLO = IMPRIMINDO ALGUM TEXTO
+
 
 #crinado a função
 def saudações ():
@@ -12,9 +15,12 @@ def saudações ():
 #chamando
 saudações ()
 
-print ('\n===========')
+def inicio (nome):
+    print ("Nome " + nome +"Bem Vindo" )
 
-# 2º EXEMPLO
+# 2º EXEMPLO DE OPERAÇÕES MATEMATICAS
+
+
 print ('\nOperação matematica')
 
 #criando a função e realizando as operações
