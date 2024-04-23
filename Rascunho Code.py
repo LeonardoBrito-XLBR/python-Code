@@ -20,4 +20,5 @@ for i in range (3):
 resultado = media (numeros)
 
 #MOSTRANDO O LOCAL DO RESULTADO
-print (resultado)
+print (f'A media foi: {resultado}')
+

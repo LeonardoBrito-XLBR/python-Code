@@ -1,0 +1,47 @@
+import os 
+os. system ("cls || clear")
+
+#Criando um vetor, preVariaveis
+pasta = []
+
+qntPositive = 0
+qntNegative = 0
+qntPares = 0
+qntImpares = 0
+i = 0
+i+= 1
+
+num = int (input ("Insera a sua 1ª nota para começar: "))
+if num != 0:
+    pasta.append (num)
+
+
+while num != 0:
+    
+    print ('Caso queria parar insira 0\n')
+
+
+    num = int (input (f"Insera o seu {i+1} valor para continuar: "))
+    
+    if num != 0:
+        pasta.append(num)
+
+    if num > 0:
+        qntPositive +=1
+    
+    elif num < 0:
+        qntNegative +=1
+
+    if num % 2 ==0:
+        qntPares += 1
+
+    elif num % 2 != 0:
+        qntImpares +=1
+
+print ('===='* 15)
+
+print (f'A quantidade de numeros inseridos: {len(pasta)}')
+print (f'A quantidade de pares: {qntPares} ')
+print (f'A quantidade de impares: {qntImpares} ')
+print (f'A quantidade de positivos: {qntPositive} ')
+print (f'A quantidade de negativos: {qntNegative}')
