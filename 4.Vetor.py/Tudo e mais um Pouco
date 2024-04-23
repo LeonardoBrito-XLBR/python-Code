@@ -9,19 +9,15 @@ qntNegative = 0
 qntPares = 0
 qntImpares = 0
 i = 0
-i+= 1
-
-num = int (input ("Insera a sua 1ª nota para começar: "))
-if num != 0:
-    pasta.append (num)
 
 
-while num != 0:
-    
+
+while True:
+    i += 1
     print ('Caso queria parar insira 0\n')
 
 
-    num = int (input (f"Insera o seu {i+1} valor para continuar: "))
+    num = int (input (f"Insera o seu {i}ª valor para continuar: "))
     
     if num != 0:
         pasta.append(num)
@@ -32,11 +28,14 @@ while num != 0:
     elif num < 0:
         qntNegative +=1
 
-    if num % 2 ==0:
+    if num % 2 == 0 and num != 0:
         qntPares += 1
 
     elif num % 2 != 0:
         qntImpares +=1
+
+    if num == 0:
+        break
 
 print ('===='* 15)
 
