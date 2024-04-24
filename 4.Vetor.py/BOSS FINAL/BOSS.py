@@ -7,6 +7,9 @@ os.system("cls" if os.name == "nt" else "clear")
 # CRIANDO UM VETOR
 vetor = []
 i: int = 0
+soma: int = 0
+quant: int = 0
+
 
 #COMPARAÇÃO
 maiorNum = 0
@@ -65,6 +68,7 @@ while True:
             mediaPares = somaPares / Pares
 
     somaImpares: int = 0
+    mediaImpares: float = 0
     for numero in vetor:
         if numero % 2 != 0:
             somaImpares += numero
@@ -86,9 +90,10 @@ while True:
            mediaNegative = 'Nenhum valor negativo digitado'
 
     #MEDIA GERAL DOS NUMEROS
-    soma = sum(vetor)
-    quant = len(vetor)
-    media = soma / quant
+    if numero != 0:
+        soma += numero
+        quant += numero
+        media = soma / quant
 
     #MAIOR E MENOR NUMERO
     if numero > maiorNum:
