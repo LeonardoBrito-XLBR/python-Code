@@ -37,6 +37,12 @@ while True:
     if num == 0:
         break
 
+#MEDIA GERAL DOS NUMEROS
+quantidade = len(pasta)
+soma = sum(pasta)
+
+media = soma / quantidade
+
 print ('===='* 15)
 
 print (f'A quantidade de numeros inseridos: {len(pasta)}')
@@ -44,3 +50,4 @@ print (f'A quantidade de pares: {qntPares} ')
 print (f'A quantidade de impares: {qntImpares} ')
 print (f'A quantidade de positivos: {qntPositive} ')
 print (f'A quantidade de negativos: {qntNegative}')
+print (f'A média dos números inseridos: {media}')
