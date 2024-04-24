@@ -42,18 +42,31 @@ def QuantidadeNegative (vetor):
             negative +=1
     return negative
 
-#MEDIAS DOS NUMEROS
-somaPares: int = 0
-
-for numero in vetor: #CHAMAR OS ELEMENTOS DO VETOR 
-    if numero % 2 == 0:
-        somaPares += numero
 
 # RESULTADO DAS DEF
 Pares = QuantidadePares(vetor)
 Impares = QuantidadeImpares (vetor)
 Positivo = QuantidadePositivo (vetor)
 Negativo = QuantidadeNegative (vetor)
+
+#MEDIAS DOS NUMEROS
+somaPares: int = 0
+for numero in vetor: #CHAMAR OS ELEMENTOS DO VETOR 
+    if numero % 2 == 0:
+        somaPares += numero
+        mediaPares = somaPares / Pares
+
+somaImpares: int = 0
+for numero in vetor:
+    if numero % 2 != 0:
+        somaImpares += numero
+        mediaImpares = somaImpares / Impares
+
+somaPositivo: int = 0
+for numero in vetor:
+    if numero > 0:
+        somaPositivo += numero
+        mediaPositive = somaPositivo / Positivo
 
 #MEDIA GERAL DOS NUMEROS
 soma = sum(vetor)
@@ -71,4 +84,6 @@ print (f'Quantidade de números negativos {Negativo}')
 print (f'Média geral dos números: {media}')
 '''
 
-print (somaPares)
+print (mediaPares)
+print (mediaImpares)
+print (mediaPositive)
