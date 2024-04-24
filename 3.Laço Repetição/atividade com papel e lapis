@@ -1,12 +1,12 @@
 import os
 os. system ("cls || clear")
 
-
+'''
 FAZER COM VETORES NOTAS = []
 VETOR: salario.append = salarioUsuario
 
 FAZER COM IF se for 1 valor apenas
-
+'''
 
 #PREDEFININFO POSSIVEIS VARIAVEIS PARA O CALCULO DE MATEMATICA 
 contador: int = 0
