@@ -1,5 +1,5 @@
 import os
-os.system("cls" if os.name == "nt" else "clear")
+os.system("clsm || clear")
 
 #CONSERTA QUANDO PARA NO 0
 
@@ -8,7 +8,6 @@ os.system("cls" if os.name == "nt" else "clear")
 vetor = []
 i: int = 0
 soma: int = 0
-quant: int = 0
 
 
 #COMPARAÇÃO
@@ -19,10 +18,15 @@ menorNum = 999999
 
 # ENTRADA DOS DADOS
 while True:
-    i += 1
+    
 
-    numero = int(input(f"Digite o seu { i }ª numero: "))
+    numero = int(input(f"Digite o seu { i+1}ª numero: "))
+    if numero == 0:
+     break
     vetor.append(numero)
+
+    
+    i += 1
 
 # ESPAÇO PARA AS DEF
     def QuantidadePares(vetor):
@@ -60,7 +64,7 @@ while True:
     Positivo = QuantidadePositivo (vetor)
     Negativo = QuantidadeNegative (vetor)
 
-    #MEDIAS DOS NUMEROS
+    #MEDIAS DOS NUMEROS 
     somaPares: int = 0
     for numero in vetor: #CHAMAR OS ELEMENTOS DO VETOR 
         if numero % 2 == 0:
@@ -92,8 +96,7 @@ while True:
     #MEDIA GERAL DOS NUMEROS
     if numero != 0:
         soma += numero
-        quant += numero
-        media = soma / quant
+        media = soma / len(vetor)
 
     #MAIOR E MENOR NUMERO
     if numero > maiorNum:
@@ -103,14 +106,13 @@ while True:
         menorNum = numero
 
     #STOP LOOP
-    if numero == 0:
-        break
+    
 
 # SAÍDA DOS DADOS
 
 os. system ('cls || clear')
 for i in reversed(vetor):
-    print(f'O seus {i}ª número foi: {i}')
+    print(f'O seus {i+1}ª número foi: {i}')
 
 print(f"Quantidade de números pares: {Pares}")
 print (f'Quantidade de números impares {Impares}')
@@ -118,11 +120,12 @@ print (f'Quantidade de números positivos {Positivo}')
 print (f'Quantidade de números negativos {Negativo}')
 print (f'Média geral dos números: {media}')
 
-
+#MEDIA GERAL
 print (f'Média dos Pares: {mediaPares}')
 print (f'Média dos Impares: {mediaImpares}')
 print (f'Média dos Positivos: {mediaPositive}')
 print (f'Média dos Negativos: {mediaNegative}')
 
+#MAIOR E MENOR NUMERO
 print (f'Maior número: {maiorNum}')
 print (f'Menor número: {menorNum}')
