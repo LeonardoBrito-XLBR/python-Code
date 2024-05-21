@@ -41,4 +41,4 @@ with open(arquivo, "w") as arquivoDePessoais:
         arquivoDePessoais.write(f"{pessoa.nome}\n {pessoa.idade}\n {pessoa.peso:.2f}\n {pessoa.altura:.2f}\n\n")
 
 
-print ("\n\nDados salvos com Sucesso")
+print ("\nDados salvos com Sucesso")
