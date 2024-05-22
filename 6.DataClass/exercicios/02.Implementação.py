@@ -16,7 +16,7 @@ livro = Livro (
     nome = input ("Qual o nome do livro: "),
     autor = input("Qual o nome do Autor do livro: "),
     categoria = input ("Qual a categoria vai receber: "),
-    preco = int (input("Quanto ele vai receber: "))
+    preco = float (input("Quanto ele vai valer: "))
 
 
 
@@ -28,7 +28,9 @@ livros.append(livro)
 #Criando o arquivo Externo
 arquivo = "DadosLivro.txt"
 
-'''
-TERMINAR EM CASA
+#Realizando Comandos de escrita em um arquivo externo
+with open(arquivo,"w") as arquivoDeLivros:
+    for livro in livros:
+        arquivoDeLivros.write(f"{livro.nome}\n{livro.autor}\n{livro.categoria}\n{livro.preco}")
 
-'''
+print("Dados dos Livros salvos com sucesso!")
