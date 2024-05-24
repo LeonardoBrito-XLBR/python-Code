@@ -36,6 +36,8 @@ with open(arquivo,"w") as arquivoDeLivros:
 
 print("Dados dos Livros salvos com sucesso!")
 
-'''
-with open(arquivo, "r") as arquivoLendo:
-'''
+
+#LENDO O ARQUIVO
+with open(arquivo, "r") as arquivoDeLivros:
+    leituraLivros = arquivoDeLivros.read() #LEMBRETE usa o apelido do arquivo no read ou write
+print(leituraLivros)

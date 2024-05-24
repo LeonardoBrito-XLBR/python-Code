@@ -24,16 +24,21 @@ def SolicitandoDados (conjuntoDados):
     )
     conjuntoDados.append(funcionario)
     print ("Dados do Funcionário cadastrado!!!")
-'''
-TERMINAR EM CASA LEO - _ - 
-'''
-#CRIANDO FUNÇÃO PARA CRIAR UM ARQUIVO EXTERNO
+
+
+#CRIANDO FUNÇÃO PARA CRIAR UM ARQUIVO EXTERNO 
 def Salvar():
-    with open("Funcionarios.txt", "w", encoding="utf-8")as arquivo:
+
+    #abrir Funionarios.txt com (as = apelido) arquivo
+   with open("Funcionarios.txt", "w", encoding="utf-8")as arquivo:
+        
+        #para cada variavel (class) na lista
         for funcionario in conjuntoDados:
-            arquivo.write(f"Nome:{funcionario.nome}")
+
+            #escreva (write) no arquivo (funcionario.txt) tal coisa abaixo v v v
+            arquivo.write(f"Nome:{funcionario.nome} Data de Nascimento: {funcionario.dataNascimento} RG: {funcionario.rg} CPF: {funcionario.cpf}")
 
 
 #CHAMADA DA FUNÇÃO
-Salvar()
-SolicitandoDados (conjuntoDados)
+SolicitandoDados (conjuntoDados) #primeiro SOLICITO 
+Salvar() #segundo Salvo

@@ -1,38 +1,48 @@
 import os
+
+#importando a biblioteca de Class
 from dataclasses import dataclass
 
-os.system("cls || clear")
+os.system ("Cls || clear")
 
+#criando lista para cada usuario
+listaUsuarios = []
+
+#criando uma class
 @dataclass
-class Aluno:
+class Usuario:
     nome: str
     idade: int
     peso: float
-    altura: float
-
-# Nome do Arquivo
-arquivoDeOrigem = "DadosPessoais.txt"
-
-# Lista para Armazenar os Alunos Lidos
-listaAlunos = []
-
-# Lê os dados do arquivo
-with open(arquivoDeOrigem, 'r') as arquivo:
-    for linha in arquivo:
-        dados = linha.strip().split(',')
-        if len(dados) == 4:
-            nome, idade, peso, altura = dados
-            listaAlunos.append(Aluno(nome=nome, idade=int(idade), peso=float(peso), altura=float(altura)))
-        else:
-            print(f"A linha '{linha.strip()}' não possui o formato esperado e será ignorada.")
 
 
-#Exibir os dados lidos
-print("\nExibindo Dados.")
+#RECOMENDADO +++
+#criando uma variavel para armazena a class 
+pessoa = Usuario(
+    nome =  input ("Digite  o seu nome: "), # NÃO ESQUEÇA DA VIRGULA
+    idade = int (input ("Digite a sua idade: ")),
+    peso = float (input("Digite o seu peso: ")),
+)
 
-for aluno in listaAlunos:
-    print(f"Nome: {aluno.nome}")
-    print(f"Idade: {aluno.idade}")
-    print(f"Peso: {aluno.peso}")
-    print(f"Altura: {aluno.altura}")
-    print()
+#LISTA  >  RECEBE >  VARIAVEIS
+listaUsuarios.append(pessoa)
+
+#CRIANDO O ARQUIVO.TXT
+arquivo = "Usuarios.txt"
+
+# w para escrever = write || as é apelidando
+with open(arquivo, "w") as arquivoUsuarios:
+
+    #laço para exibir cada item na lista
+    for usu in listaUsuarios:
+
+        #o arquivo apelidado vai escrever tal coisa
+        arquivoUsuarios.write(f"{listaUsuarios}")
+
+#LENDO O ARQUIVO.txt
+with open(arquivo, "r") as arquivoLendo:
+    leituraArquivo = arquivoLendo.read()
+
+print(leituraArquivo)
+
+        
