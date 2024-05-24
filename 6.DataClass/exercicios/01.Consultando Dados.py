@@ -18,31 +18,40 @@ class Usuario:
 
 #RECOMENDADO +++
 #criando uma variavel para armazena a class 
-pessoa = Usuario(
+for i in range (2):
+
+    #PREENCHENDO A CLASS COM CADA ATRIBUTO
+    pessoa = Usuario(
     nome =  input ("Digite  o seu nome: "), # NÃO ESQUEÇA DA VIRGULA
     idade = int (input ("Digite a sua idade: ")),
     peso = float (input("Digite o seu peso: ")),
-)
+    
+    )
+    print () # <= \n
+    #LISTA  >  RECEBE >  VARIAVEIS
+    listaUsuarios.append(pessoa)
 
-#LISTA  >  RECEBE >  VARIAVEIS
-listaUsuarios.append(pessoa)
 
 #CRIANDO O ARQUIVO.TXT
 arquivo = "Usuarios.txt"
 
-# w para escrever = write || as é apelidando
+                      # as = apelidando
 with open(arquivo, "w") as arquivoUsuarios:
+
+    #write = escreva
+    arquivoUsuarios.write ("=== DADOS DO USUARIO === \n")
 
     #laço para exibir cada item na lista
     for usu in listaUsuarios:
-
         #o arquivo apelidado vai escrever tal coisa
-        arquivoUsuarios.write(f"{listaUsuarios}")
+        arquivoUsuarios.write(f"\nSeu nome é: {usu.nome}\nSua idade:{usu.idade}\nSeu peso:{usu.peso}\n")
+        #variavel onde vai buscar na class oq 
 
 #LENDO O ARQUIVO.txt
 with open(arquivo, "r") as arquivoLendo:
     leituraArquivo = arquivoLendo.read()
 
-print(leituraArquivo)
+os.system("cls || clear")
+print(f"{leituraArquivo}\n")
 
         

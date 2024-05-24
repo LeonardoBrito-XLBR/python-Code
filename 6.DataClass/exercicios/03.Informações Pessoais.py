@@ -16,29 +16,37 @@ class Usuario:
 
 #CRIANDO FUNÇÃO PARA ENVIAR OS DADOS PARA LISTA + DANDO INFORMAÇÕES + GUARDANDO CLASS NUMA VARIAVEL(FUNCIONARIO)
 def SolicitandoDados (conjuntoDados):
-    funcionario = Usuario(
-        nome = input ("Digite o seu nome: "),
-        dataNascimento = input ("Digite o sua data de nascimento: "),
-        rg = input ("Digite o seu RG: "),
-        cpf = input ("Digite o seu CPF: ")
-    )
-    conjuntoDados.append(funcionario)
+    for i in range(2):
+        funcionario = Usuario(
+            nome = input ("Digite o seu nome: "),
+            dataNascimento = input ("Digite o sua data de nascimento: "),
+            rg = input ("Digite o seu RG: "),
+            cpf = input ("Digite o seu CPF: ")
+        )
+        print()
+        conjuntoDados.append(funcionario)
+
     print ("Dados do Funcionário cadastrado!!!")
 
+#GUARDANDO O ARQUIVO NUMA VARIAVEL
+arquivo = "Funcionarios.txt"
 
 #CRIANDO FUNÇÃO PARA CRIAR UM ARQUIVO EXTERNO 
 def Salvar():
+   with open(arquivo, "w", encoding="utf-8")as arquivo1:
+        arquivo1.write("===== DADOS DO USUARIOS =====\n")
 
-    #abrir Funionarios.txt com (as = apelido) arquivo
-   with open("Funcionarios.txt", "w", encoding="utf-8")as arquivo:
-        
-        #para cada variavel (class) na lista
         for funcionario in conjuntoDados:
+            arquivo1.write(f"Nome: {funcionario.nome}\nData de Nascimento: {funcionario.dataNascimento}\nRG: {funcionario.rg}\nCPF: {funcionario.cpf}\n\n")
 
-            #escreva (write) no arquivo (funcionario.txt) tal coisa abaixo v v v
-            arquivo.write(f"Nome:{funcionario.nome} Data de Nascimento: {funcionario.dataNascimento} RG: {funcionario.rg} CPF: {funcionario.cpf}")
-
+def Leitura():
+    #r de read (ler) / arqv é apelido
+    with open(arquivo, "r") as arqv:
+        leituraArquivo = arqv.read()
+    print(leituraArquivo)
 
 #CHAMADA DA FUNÇÃO
-SolicitandoDados (conjuntoDados) #primeiro SOLICITO 
-Salvar() #segundo Salvo
+SolicitandoDados (conjuntoDados) #SOLICITO 
+Salvar() # Salvo
+
+Leitura() #Lendo e Imprimindo'''

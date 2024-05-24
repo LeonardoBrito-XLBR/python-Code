@@ -1,1 +1,8 @@
-[Usuario(nome='Leonardo', idade=14, peso=68.9)]
+=== DADOS DO USUARIO === 
+Seu nome é: Leonardo
+Sua idade:14
+Seu peso:75.2
+
+Seu nome é: Adriana
+Sua idade:15
+Seu peso:87.2
