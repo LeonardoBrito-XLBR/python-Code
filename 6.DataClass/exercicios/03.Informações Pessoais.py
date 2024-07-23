@@ -1,52 +1,133 @@
+# Criar um sistema de Biblioteca com 4 funcionalidades
+# FAZER UM LAÇO PARA SAIR E ENTRA NOS COMANDOS
+
+'''
+resultado  = (numLidas / numTotal ) * 100
+print (f"Então vc leu cerca de {resultado:.2f}% do seu livro")
+
+'''
 import os
-from dataclasses import dataclass
+import time
+os.system("Cls || clear")
+# Limpar o console
+def limpar_console():
+    os.system("cls" if os.name == "nt" else "clear")
 
-os.system('cls || clear')
-
-#CRIANDO LISTA PARA GUARDA OS 5 FUNCIONÁRIOS
-conjuntoDados = []
-
-#CRIANDO A CLASS
-@dataclass
+# Classe para o usuário
 class Usuario:
-    nome: str
-    dataNascimento: str
-    rg: int
-    cpf: int
+    def __init__(self, nome, login, senha):
+        self.nome = nome
+        self.login = login
+        self.senha = senha
 
-#CRIANDO FUNÇÃO PARA ENVIAR OS DADOS PARA LISTA + DANDO INFORMAÇÕES + GUARDANDO CLASS NUMA VARIAVEL(FUNCIONARIO)
-def SolicitandoDados (conjuntoDados):
-    for i in range(2):
-        funcionario = Usuario(
-            nome = input ("Digite o seu nome: "),
-            dataNascimento = input ("Digite o sua data de nascimento: "),
-            rg = input ("Digite o seu RG: "),
-            cpf = input ("Digite o seu CPF: ")
-        )
-        print()
-        conjuntoDados.append(funcionario)
+# Função para exibir a tabela principal
+def exibir_tabela_principal():
+    print("CÓDIGO  -  DESCRIÇÃO")
+    print("#1 \t-  Cadastro de Usuário")
+    print("#2 \t-  Compra de Livro")
+    print("#3 \t-  Empréstimo ou Devolução")
+    print("#4 \t-  Cadastro de Livro")
+    print("#0 \t-  Sair")
+    print("-"*35)
 
-    print ("Dados do Funcionário cadastrado!!!")
+    try:
+        opcao = int(input("Digite a sua opção: "))
+        return opcao
+    except ValueError:
+        print("Erro: A opção deve ser um valor numérico inteiro.")
+        return None
 
-#GUARDANDO O ARQUIVO NUMA VARIAVEL
-arquivo = "Funcionarios.txt"
+# Função para cadastrar um usuário
+def cadastrar_usuario():
+    nome = input("Digite o seu nome completo: ")
+    login = input("Digite o seu login: ")
+    senha = input("Digite a sua senha: ")
 
-#CRIANDO FUNÇÃO PARA CRIAR UM ARQUIVO EXTERNO 
-def Salvar():
-   with open(arquivo, "w", encoding="utf-8")as arquivo1:
-        arquivo1.write("===== DADOS DO USUARIOS =====\n")
+    return Usuario(nome, login, senha)
 
-        for funcionario in conjuntoDados:
-            arquivo1.write(f"Nome: {funcionario.nome}\nData de Nascimento: {funcionario.dataNascimento}\nRG: {funcionario.rg}\nCPF: {funcionario.cpf}\n\n")
+# Função para fazer login e retornar o usuário correspondente
+def fazer_login(usuarios_cadastrados):
+    login = input("Digite o seu login: ")
+    senha = input("Digite a sua senha: ")
 
-def Leitura():
-    #r de read (ler) / arqv é apelido
-    with open(arquivo, "r") as arqv:
-        leituraArquivo = arqv.read()
-    print(leituraArquivo)
+    for usuario in usuarios_cadastrados:
+        if usuario.login == login and usuario.senha == senha:
+            return usuario
 
-#CHAMADA DA FUNÇÃO
-SolicitandoDados (conjuntoDados) #SOLICITO 
-Salvar() # Salvo
+    print("Login ou senha incorretos.")
+    return None
 
-Leitura() #Lendo e Imprimindo'''
+# Função para exibir a tabela de compras
+def exibir_tabela_compras():
+    print("CÓDIGO   - \tLIVRO \t\t - \t\tPREÇO")
+    print("#1\t - Caminhos do Destino   - \tR$15 ")
+    print("#2\t - Além das Estrelas     - \tR$20 ")
+    print("#3\t - Entre o Sol e a Lua   - \tR$25 ")
+    print("#4\t - A Sombra do Passado   - \tR$30 ")
+    print("#5\t - O Poder da Imaginação - \tR$35 ")
+
+# Função principal para o programa da biblioteca
+def programa_biblioteca():
+    usuarios = []  # Lista para armazenar os usuários cadastrados
+
+    while True:
+        limpar_console()
+        opcao = exibir_tabela_principal()
+
+        if opcao == 1:
+            limpar_console()
+            usuario = cadastrar_usuario()
+            usuarios.append(usuario)
+            print("Usuário cadastrado com sucesso!")
+            time.sleep(2)
+
+        elif opcao == 2:
+            limpar_console()
+            usuario_logado = fazer_login(usuarios)
+            if usuario_logado:
+                exibir_tabela_compras()
+                # Aqui você pode implementar a lógica para compra de livros
+                input("Pressione Enter para continuar...")
+        
+        elif opcao == 3:
+            limpar_console()
+            usuario_logado = fazer_login(usuarios)
+            if usuario_logado:
+                # Implementar lógica para empréstimo ou devolução de livros
+                print("Empréstimo ou devolução de livros.")
+                input("Pressione Enter para continuar...")
+        
+        elif opcao == 4:
+            limpar_console()
+            usuario_logado = fazer_login(usuarios)
+            if usuario_logado:
+                # Implementar lógica para cadastro de livros
+                print("Cadastro de livros.")
+                input("Pressione Enter para continuar...")
+        
+        elif opcao == 0:
+            print("Saindo do programa...")
+            break
+        
+        else:
+            print("Opção inválida. Digite um número válido.")
+
+# Executar o programa principal
+programa_biblioteca()
+
+            
+# ====================================================================
+'''
+# EXERCICIO 3 - PORCENTAGEM DE LEITURA
+import os
+
+import time
+
+
+numTotal = int (input ("Quantas paginas tem esse livro? "))
+
+numLidas = int (input ("Quantas paginas você já leu? "))
+
+resultado  = (numLidas / numTotal ) * 100
+
+print (f"Então vc leu cerca de {resultado:.2f}% do seu livro")'''
