@@ -1,36 +1,22 @@
 import os
+os.system("cls clear")
 
 
-'''
-MODO DOUGLAS 
 
-
-def porcentagem (produto):
-
-    if produto < 100:
-        return produto + (produto * (10/100))
-    return produto - (produto * 10/100)
-
-os.system ("cls || clear")
-preco = int (input ("Digite o seu numero: "))
-
-final = porcentagem (preco)
-
-
-print (final)
-
-'''
-
-
-def inflação (num):
-    if num < 100:
-        porcentagem = num * 0.1
-        resultado = num + porcentagem
-        return resultado
+def inflação(num):
+    if num < 1000:
+        porcentagem = 0.1  # Apenas mantém o valor decimal
     else:
-        porcentagem = num * 0.2
-        resultado = num + porcentagem
-        return resultado
-    
-#terminar em casa = 30/04/2024 > 16:43
-#prof Cal :>
+        porcentagem = 0.2
+
+    resultado = num + (num * porcentagem)
+    return resultado, porcentagem  # Retorna a porcentagem como decimal
+
+# Entrada do usuário
+salario = float(input("Digite o seu salário: "))
+
+# Chamada da função
+resultado = inflação(salario)
+
+# Exibir resultados formatados
+print(f"O seu salário sofreu uma inflação de {resultado[1] * 100:.0f}% e agora será: {resultado[0]:.2f}")
