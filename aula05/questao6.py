@@ -11,8 +11,10 @@ class Canditado:
         
     def exibirVotos (self):
         return (f"A quantidade do {self.nome} votos foi: {self.votos}")
+    
+    def __str__(self):
+        return f"Nome: {self.nome} Partido: {self.partido} Votos: {self.votos}"
         
-
 def cadastrarCandidatos():
     nome = input("Digite o seu nome sr(a): ")
     idade = int(input("Digite sua idade: "))
@@ -22,23 +24,38 @@ def cadastrarCandidatos():
         print("Impossivel cadastrar esse candidato!")
         return
     else:
-        print("Partido reconhecido no sistema")
+        print("Partido reconhecido no sistema!")
+        
    
-    votos = votosAleatorios()
-    return Canditado(nome, idade, partido, votos)         
+        votos = votosAleatorios()
+        return Canditado(nome, idade, partido, votos)         
 
 
 
+
+
+#FUNCAO PARA RECEBER OS NUMEROS DE VOTOS 
 def votosAleatorios():
     quantVotos = random.randint(3,9)
     return quantVotos
-    
-for i in range(3):
+ 
+ 
+# INICIO DO CODIGO! 
+
+conjCanditados = []
+
+for i in range(2):
     pessoa = cadastrarCandidatos()
+    conjCanditados.append(pessoa)
+    os.system("cls")
+    
+    
+for candidato in conjCanditados:
+    print(candidato) 
     
 
-os.system("cls")
+# os.system("cls")
 
-print("EXIBINDO AS INFORMAÇÕES")
+# print("EXIBINDO AS INFORMAÇÕES")
 
-print(pessoa.exibirVotos)
+# print(pessoa.exibirVotos())
