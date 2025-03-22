@@ -1,6 +1,25 @@
 import customtkinter as ctk
 
 
+# ----- FUNCAO PARA VERIFICAR O USUARIO
+
+#USERLOGIN = LEO12345
+#PASSWORD = 9876
+
+
+
+def verificarUsuario():
+    loginFinal = str (login.get())
+    senhaFinal = int (senha.get())
+    
+    if loginFinal == "LEO12345" and senhaFinal == 9876:
+        mensagem.configure(text="ACESSO PERMITIDO LEONARDO!", text_color="green")
+    else:
+        mensagem.configure(
+            text="ACESSO NEGADO! LOGIN OU SENHA INVALIDOS",
+            text_color="red"
+            )
+
 #TEMA DA EXTENSAO
 ctk.set_appearance_mode('dark')
 
@@ -8,7 +27,7 @@ ctk.set_appearance_mode('dark')
 
 #TAMANHO MAXIMO DE 1920 X 1080 - MEDIA DAS TELAS FULL HD
 janela = ctk.CTk('#000000') #comportta cores hexadecimais 
-janela.geometry('500x300')
+janela.geometry('800x500')
 
 #PERMITIR REDIMENSIONAR AS JANELAS 
 janela.resizable(False, False)
@@ -19,7 +38,7 @@ janela.title('Sistema de Acesso 2025')
 #TITULO DENTRO DA JANELA 
 ctk.CTkLabel(janela, 
              text='Sistema de Acesso',
-             font=('Consolas', 32, 'bold' ),
+             font=('Consolas', 36, 'bold' ),
              text_color='green').pack(pady=20)
 
 
@@ -39,12 +58,21 @@ senha = ctk.CTkEntry(janela, width=400,
 senha.pack(pady=20)
 
 
+mensagem = ctk.CTkLabel(janela,
+                        text="",
+                        text_color="red",
+                        font=('Consolas', 20, 'bold') 
+                        )
+
+mensagem.pack(pady=(10))
+
 botao = ctk.CTkButton(janela, width=150,
                       height=38,
                       text_color='black',
                       fg_color='green',
                       text='Acessar',
-                      hover_color='darkgreen',)
+                      hover_color='darkgreen',
+                      command=verificarUsuario)
 
 botao.pack()
 

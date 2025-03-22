@@ -32,7 +32,7 @@ janela.resizable(False, False)
 janela.title("Sistema de Posto") 
 
 # ICONE DA JANELA
-janela.iconbitmap('3668856-car-fuel-gas-station_108026.ico')
+# janela.iconbitmap('3668856-car-fuel-gas-station_108026.ico')
 
 # ------------------------------------------------------------------
 
