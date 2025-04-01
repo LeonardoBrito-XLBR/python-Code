@@ -9,7 +9,7 @@ intarface.resizable(False,False)
 
 intarface.title('Sistema de Conversao de Moeadas')
 
-intarface.iconbitmap('10384161.png')
+# intarface.iconbitmap('10384161.png')
 
 
 colorText = 'Orange'
@@ -23,7 +23,7 @@ ctk.CTkLabel(intarface,
              ).pack()
 
 ctk.CTkLabel(intarface,
-             text='VALOR EM REAL',
+             text='VALOR DE REAL',
              text_color=colorText,
              font=('Consolas', 20)).pack()
 
