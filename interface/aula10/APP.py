@@ -35,7 +35,7 @@ janela.title('Aplicativo Saúde')
 corVerde = '#12b566'
 
 # --- ICONE DA PAGINA 
-janela.iconbitmap("biceps_body_building_fitness_icon_224857.ico")
+
 
 texto =ctk.CTkLabel(janela,text='Aplicativo Saúde',font=('Arial',30,),text_color='#12b566')
 texto.pack(padx=0, pady=10)
