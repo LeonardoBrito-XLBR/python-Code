@@ -23,7 +23,7 @@ cor = corVermelha
 
 janela = ctk.CTk() #INICIANLIZANDO 
 
-janela.geometry("500x280") # TAMANHO DA JANELA
+janela.geometry("540x230") # TAMANHO DA JANELA
 
 janela.title("TIME OF WORLD") # TITULO DA PAGINA
 janela.resizable(False, False) # REDIMENSIONAR???
@@ -41,17 +41,17 @@ def Relogio():
     
     fimAno = datetime(proximoAno, 1, 1)
     
-    diferenca = proximoAno - tempo
+    diferenca = fimAno - tempo
     
     diasRestantes = diferenca.days
     
-    textoDias = f"Faltam {dias_restantes} dias para o Ano Novo!"
+    textoDias = f"Faltam {diasRestantes} dias para o Ano Novo!"
     
-    localAnoNovo.configure(text=texto_dias)
-    localAnoNovo.after(86400000, dias_para_ano_novo)
-    # fimAno = (datetime("01/01;2026", "%d;%m;%Y"))
+    localAnoNovo.configure(text=textoDias)
+    localAnoNovo.after(86400000, Relogio)
+   
     
-    print(fimAno)
+    
     mes = tempo.strftime("%B")
     ano = tempo.strftime("%Y")
     
@@ -65,18 +65,20 @@ localTime = ctk.CTkLabel(janela, text="", text_color=corBranco,
 localTime.pack(pady=10)
 
 
-localDate = ctk.CTkLabel(janela, text="", text_color=corBranco,
-             font=("Consolas", 30), fg_color=fundo)
-localDate.pack(pady=10)
+localDate = ctk.CTkLabel(janela, text="", text_color=corDourado,
+             font=("Casadia code", 20), fg_color=fundo)
+localDate.pack(pady=4)
 
 
-localAnoNovo = ctk.CTkLabel(janela, text="", text_color=corBranco,
-             font=("Consolas", 30), fg_color=fundo)
+localAnoNovo = ctk.CTkLabel(janela, text="", text_color=corDourado,
+             font=("Casadia code", 20), fg_color=fundo)
 localAnoNovo.pack(pady=10)
 
 
 Relogio()
 
+#fixa acima das telas
+janela.attributes("-topmost", True)
  
 
 
