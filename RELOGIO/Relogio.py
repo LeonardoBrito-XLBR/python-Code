@@ -1,7 +1,13 @@
 import customtkinter as ctk
+import tkinter.font as tkFont
+import ctypes
+
+ctypes.windll.gdi32.AddFontResourceW("DS-DIGIB.TTF")
 
 from datetime import datetime
 # from tkinter
+
+import tkinter as tk
 
 
 # ==== VARIAVEIS DE CORES ======
@@ -18,15 +24,23 @@ corBranco = "#fcfcfc"
 # ==============================
 
 fundo = corPretaAzul
-cor = corVermelha
+cor = corBranco
+textCor = corAmarela
+
+fontFamily = "DS-Digital" # FONTE DE TUDO
+fontText = ('Consolas', 20) # TAMANHO DO TEXTO
 
 
 janela = ctk.CTk() #INICIANLIZANDO 
 
-janela.geometry("540x230") # TAMANHO DA JANELA
+
+
+janela.minsize(390, 180)
+janela.maxsize(520, 300)
+# janela.geometry("490x230") # TAMANHO DA JANELA
 
 janela.title("TIME OF WORLD") # TITULO DA PAGINA
-janela.resizable(False, False) # REDIMENSIONAR???
+janela.resizable(True, True) # REDIMENSIONAR???
 
 janela.config(bg=fundo)
 
@@ -60,19 +74,22 @@ def Relogio():
     localDate.configure(text=diaSemana + "/" + str(dia) + "/" + str(mes) + "/" + str(ano))
     
 
-localTime = ctk.CTkLabel(janela, text="", text_color=corBranco,
-             font=("Consolas", 80), fg_color=fundo)
+localTime = ctk.CTkLabel(janela, text="", text_color=cor,
+             font=(fontFamily, 100), fg_color=fundo)
 localTime.pack(pady=10)
+# localTime.place(x=16, y=10)
 
 
-localDate = ctk.CTkLabel(janela, text="", text_color=corDourado,
-             font=("Casadia code", 20), fg_color=fundo)
+localDate = ctk.CTkLabel(janela, text="", text_color=textCor,
+             font=(fontText), fg_color=fundo)
 localDate.pack(pady=4)
+# localDate.place(x=140, y=100)
 
 
-localAnoNovo = ctk.CTkLabel(janela, text="", text_color=corDourado,
-             font=("Casadia code", 20), fg_color=fundo)
-localAnoNovo.pack(pady=10)
+localAnoNovo = ctk.CTkLabel(janela, text="", text_color=textCor,
+             font=(fontText), fg_color=fundo)
+localAnoNovo.pack(pady=7)
+# localAnoNovo.place(x=80, y=130)
 
 
 Relogio()

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Chat com IA</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 2rem auto; }
+        #chat { border: 1px solid #ccc; padding: 1rem; height: 400px; overflow-y: auto; }
+        .msg { margin-bottom: 1rem; }
+        .user { font-weight: bold; color: #007bff; }
+        .ia { font-style: italic; color: #28a745; white-space: pre-wrap; }
+        input { width: 80%; padding: 0.5rem; }
+        button { padding: 0.5rem 1rem; }
+    </style>
+</head>
+<body>
+    <h1>Chat com IA</h1>
+
+    <div id="chat"></div>
+
+    <input type="text" id="pergunta" placeholder="Digite sua pergunta" autocomplete="off" />
+    <button onclick="enviarPergunta()">Enviar</button>
+
+    <script>
+        const chat = document.getElementById("chat");
+        const input = document.getElementById("pergunta");
+
+        function addMessage(text, sender) {
+            const div = document.createElement("div");
+            div.classList.add("msg", sender);
+            div.textContent = text;
+            chat.appendChild(div);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        function enviarPergunta() {
+            const pergunta = input.value.trim();
+            if (!pergunta) return;
+            addMessage("Você: " + pergunta, "user");
+            input.value = "";
+            fetch("/perguntar", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ pergunta })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.resposta) {
+                    addMessage("IA: " + data.resposta, "ia");
+                } else {
+                    addMessage("Erro: " + (data.mensagem || "Erro desconhecido"), "ia");
+                }
+            })
+            .catch(() => addMessage("Erro: falha na conexão", "ia"));
+        }
+
+        input.addEventListener("keydown", e => {
+            if (e.key === "Enter") enviarPergunta();
+        });
+    </script>
+</body>
+</html>
