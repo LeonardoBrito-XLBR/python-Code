@@ -16,19 +16,18 @@
 #SUPOSTO BANCO DE DADOS - USER 
 usuarios = []
 
+#USER - ATRIBUTOS
 class Usuario:
-    def __init__(self, userName, nome, year, email ):
+    def __init__(self, userName, nome, year, email, senha ):
         self.userName = userName,
         self.nome = nome,
         self.idade = (year - 2026),
-        self.email = email
-        
-    
+        self.email = email,
+        self.senha = senha,
 
 
 
-
-
+#FUNCAO DO SISTEMA GERAL 
 def MenuComando():
     print("")
     print("[1] ENTRAR -  USUARIOS")
@@ -37,7 +36,7 @@ def MenuComando():
     
     return
 
-
+#FUNCAO DO SISTEMA GERAL 
 def OpcaoUser(MenuOpcoes):
     
     While True:
