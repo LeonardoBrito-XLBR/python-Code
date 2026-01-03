@@ -16,7 +16,7 @@
 #SUPOSTO BANCO DE DADOS - USER 
 usuarios = []
 
-#USER - ATRIBUTOS
+# USER - ATRIBUTOS
 class Usuario:
     def __init__(self, userName, nome, year, email, senha ):
         self.userName = userName,
@@ -39,22 +39,15 @@ def MenuComando():
 #FUNCAO DO SISTEMA GERAL 
 def OpcaoUser(MenuOpcoes):
     
-    While True:
+    while (True):
         MenuOpcoes()
-        
-        opcao = input("DIGTE SUA OPCAO ")
-        try: 
-            opcao = int(opcao)
-        
-            if opcao in :
-                
-                return opcao 
-                
-                
-            else:
-                
-                
-        
+        opcao = input("DIGTE SUA OPCAO: ")
+        opcao = int(opcao) #TRANSFORMANDO UM STRING EM INT 
+            
+        if (opcao == int ):
+            return opcao 
+        else: 
+            print("TIPO DE DADO INCORRETO - SOMENTE NUMEROS")
+    return
     
-MenuComando()
-
+OpcaoUser(MenuComando)
