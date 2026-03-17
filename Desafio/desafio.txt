@@ -1,0 +1,49 @@
+Desafio: Cofre Numérico
+
+Você precisa descobrir a senha de um cofre.
+A senha segue algumas regras:
+
+A senha tem 4 dígitos.
+
+A soma de todos os dígitos deve ser 20.
+
+Nenhum dígito pode se repetir.
+
+O primeiro dígito deve ser maior que o último.
+
+Exemplo de senha válida
+7643
+
+Porque:
+
+7 + 6 + 4 + 3 = 20
+
+Nenhum número repete
+
+7 > 3
+
+Sua missão
+
+Crie um programa que:
+
+Encontre todas as senhas possíveis que seguem essas regras.
+
+Mostre quantas senhas existem.
+
+Mostre as senhas encontradas.
+
+Desafio extra (Hard mode) 🚀
+
+Depois que resolver:
+
+Faça o usuário digitar um número.
+
+O programa deve dizer se esse número poderia ser uma senha válida ou não.
+
+💡 Dica de lógica:
+
+Você pode usar:
+
+4 loops
+
+ou gerar números de 1000 a 9999 e testar as regras.
