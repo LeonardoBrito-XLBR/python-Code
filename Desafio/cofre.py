@@ -1,5 +1,5 @@
 import os 
-os.system("cls")
+
 
 #REGRA PARA O DESAFIO: DESCOBRIR POSSIVEIS SENHAS 
 # NUMERO MAX = 4 DIGITIOS 
@@ -10,9 +10,7 @@ os.system("cls")
 
 # LISTAS = SERVEM COMO UMA VETOR DE NOMES, INT, OBJETOS, E TUDO MAIS 
 
-        
-senha = [4,2395,1,5]
-
+    
 
 
 #FUNCAO PARA VERIFICAR O NUMERO MAXIMO DE DIGITADOS 
@@ -24,23 +22,26 @@ def Contar_Digitos(senha):
         quantidade += 1 
     
     #VERIFICANDO CADA 
-    if quantidade > 4 or quantidade < 4: 
+    if quantidade > 4: 
         print("Senha invalida: muitos numeros")
-        return False 
-    else:
-        return True
-
-
-
-# FUNCAO PARA VERIFICAR SE PRIMERO NUM > ULTIMO NUM 
-def Verificar_Maior_Que_Ultimo(senha):
-    if senha[0] > senha[3]:
-        print("O primeiro numero e maior que o ultimo" ) # STATUS DE LOG NO MAIN LOOP
-        return True
-    else:
-        print("O primeiro numero e menor que o ultimo")
+        return False
+     
+    elif quantidade < 4:
+        print("Senha invalida: poucos numeros")
         return False
     
+    else:
+        print("Senha Correta")
+        return True
+
+# FUNCAO PARA VERIFICAR SE PRIMERO NUM > ULTIMO NUM 
+def Maior_Ultimo(senha):
+    if senha[0] > senha[3]:
+        print("SENHA CORRETA" ) # STATUS DE LOG NO MAIN LOOP
+        return True
+    else:
+        print("SENHA INVALIDA: O primeiro numero e menor que o ultimo")
+        return False
 
 # FUNCAO PARA VERIFICAR A SOMA DOS NUMERO 
 def Somar_Senha(senha):
@@ -50,15 +51,16 @@ def Somar_Senha(senha):
         soma += i
         
     if soma > 20: 
-        print("Senha invalida: A soma dos numeros é maior que 20")
+        print(f"Senha invalida: A soma dos numeros é maior que 20 [{soma}]")
+        return False 
     elif soma < 20:
-        print("Senha invalida: A soma dos nuero e menor que 20")
+        print(f"Senha invalida: A soma dos nuero e menor que 20 [{soma}]")
+        return False
     else:
         print("Senha Correta")
         return True
     
 # VERIFICAR SE O NUMERO E IGUAL 
-
 def Repetir_Numeros(senha):   
     #memoria local para comparar 
     vistos = []
@@ -69,22 +71,51 @@ def Repetir_Numeros(senha):
         if numero in vistos:
             print("NUMERO ERRADO")
             return False
-        else:
+        elif numero not in vistos:
             # se nao existir, adicionar e comparar la em cima
             vistos.append(numero)
-            print("NUMERO CORRETO")
-            return True
+            # print("ADICIONADO NO ARRAY")
+        else:
+            print("SENHA VALIDA ")
  
-Repetir_Numeros(senha)
 
+# ======= PRINCIPAL PROGRAMA ======== 
 
+# SENHA PARA TESTE
+senha = [1,3,1,2,12,31]
+
+validador = True
 while True: 
     
-    senha = [1,2,2,1,4]
     
-    print (Contar_Digitos(senha))
-    print(Verificar_Maior_Que_Ultimo(senha))
-    print(Somar_Senha(senha))
-    print(Repetir_Numeros(senha))
+    if validador == False:
+        break
     
-    break
+    print(validador) # INICIO 
+    
+    
+    validador = (Contar_Digitos(senha))
+    if validador == False:
+        break
+    
+    
+    print(validador)
+    validador = (Maior_Ultimo(senha))
+    if validador == False:
+        break
+    
+    
+    print(validador)
+    validador = (Somar_Senha(senha))
+    if validador == False:
+        break
+    
+    
+    print(validador)
+    validador = (Repetir_Numeros(senha))
+    if validador == False:
+        break
+    
+    
+    
+    break 
