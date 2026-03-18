@@ -1,5 +1,5 @@
 import os 
-
+import random
 
 #REGRA PARA O DESAFIO: DESCOBRIR POSSIVEIS SENHAS 
 # NUMERO MAX = 4 DIGITIOS 
@@ -82,39 +82,50 @@ def Repetir_Numeros(senha):
 # ======= PRINCIPAL PROGRAMA ======== 
 
 # SENHA PARA TESTE
-senha = [11,3,4,2]
+senhaZ = [11,3,4,2]
 
-validador = True
 while True: 
+    senha = []
+
+    for i in range(4):
+        num = random.randint(0,9)
+        print(num)
+        senha.append(num)
+
+
+    print(senha)
     
-    
-    if validador == False:
-        break
-    
-    print(validador) # INICIO 
-    
-    
-    validador = (Contar_Digitos(senha))
-    if validador == False:
-        break
-    
-    
-    print(validador)
-    validador = (Maior_Ultimo(senha))
-    if validador == False:
-        break
-    
-    
-    print(validador)
-    validador = (Somar_Senha(senha))
-    if validador == False:
-        break
-    
-    
-    print(validador)
-    validador = (Repetir_Numeros(senha))
-    if validador == False:
-        break
-    
-    print("SENHA EM FORMATO CORRETO: ")
-    break 
+    validador = True
+    while True: 
+        
+        
+        if validador == False:
+            break
+        
+        print(validador) # INICIO 
+        
+        
+        validador = (Contar_Digitos(senha))
+        if validador == False:
+            break
+        
+        
+        print(validador)
+        validador = (Maior_Ultimo(senha))
+        if validador == False:
+            break
+        
+        
+        print(validador)
+        validador = (Somar_Senha(senha))
+        if validador == False:
+            break
+        
+        
+        print(validador)
+        validador = (Repetir_Numeros(senha))
+        if validador == False:
+            break
+        
+        print("SENHA EM FORMATO CORRETO: ")
+        break 
