@@ -7,7 +7,6 @@ import random
 # A SOMA PRECISA  DA 20 
 # NAO PODE SE REPETIR NUMEROS 
 
-
 # LISTAS = SERVEM COMO UMA VETOR DE NOMES, INT, OBJETOS, E TUDO MAIS 
 
     
@@ -40,7 +39,7 @@ def Maior_Ultimo(senha):
         print("SENHA CORRETA" ) # STATUS DE LOG NO MAIN LOOP
         return True
     else:
-        print("SENHA INVALIDA: O primeiro numero e menor que o ultimo")
+        print("SENHA INVALIDA: O primeiro numero < o ultimo")
         return False
 
 # FUNCAO PARA VERIFICAR A SOMA DOS NUMERO 
@@ -51,10 +50,10 @@ def Somar_Senha(senha):
         soma += i
         
     if soma > 20: 
-        print(f"Senha invalida: A soma dos numeros é maior que 20 [{soma}]")
+        print(f"Senha invalida: A soma dos numeros > 20 [{soma}]")
         return False 
     elif soma < 20:
-        print(f"Senha invalida: A soma dos nuero e menor que 20 [{soma}]")
+        print(f"Senha invalida: A soma dos nuero < 20 [{soma}]")
         return False
     else:
         print("Senha Correta")
@@ -77,33 +76,32 @@ def Repetir_Numeros(senha):
             # print("ADICIONADO NO ARRAY")
         else:
             print("SENHA VALIDA ")
- 
+            return True
 
 # ======= PRINCIPAL PROGRAMA ======== 
 
 # SENHA PARA TESTE
 senhaZ = [11,3,4,2]
 
-while True: 
-    senha = []
+validador = True
+status = True
 
+# ===== LOOP PRINCIPAL DO PROGRANA =======
+while True:
+    # ===================================
+    # ISSO AQUI GERAR 4 DIGITIOS E ADICIONAR NO ARRAY 
+    senha = []
+    
     for i in range(4):
         num = random.randint(0,9)
-        print(num)
         senha.append(num)
-
-
+        
     print(senha)
     
-    validador = True
+    # ===================================
+    
     while True: 
-        
-        
-        if validador == False:
-            break
-        
-        print(validador) # INICIO 
-        
+          
         
         validador = (Contar_Digitos(senha))
         if validador == False:
@@ -127,5 +125,7 @@ while True:
         if validador == False:
             break
         
+        #SE DER CERTO AQUI
         print("SENHA EM FORMATO CORRETO: ")
         break 
+    
