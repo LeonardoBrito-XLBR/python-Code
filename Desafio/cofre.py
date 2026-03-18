@@ -69,7 +69,7 @@ def Repetir_Numeros(senha):
         
         # se o numero ja existir no array
         if numero in vistos:
-            print("NUMERO ERRADO")
+            print(f"SENHA INVALIDA [NUMERO REPETIDO]: {numero}")
             return False
         elif numero not in vistos:
             # se nao existir, adicionar e comparar la em cima
@@ -82,7 +82,7 @@ def Repetir_Numeros(senha):
 # ======= PRINCIPAL PROGRAMA ======== 
 
 # SENHA PARA TESTE
-senha = [1,3,1,2,12,31]
+senha = [11,3,4,2]
 
 validador = True
 while True: 
@@ -116,6 +116,5 @@ while True:
     if validador == False:
         break
     
-    
-    
+    print("SENHA EM FORMATO CORRETO: ")
     break 
