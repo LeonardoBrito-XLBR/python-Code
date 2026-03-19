@@ -22,25 +22,21 @@ def Contar_Digitos(senha):
     
     #VERIFICANDO CADA 
     if quantidade > 4: 
-        print("Senha invalida: muitos numeros")
         return False
      
-    elif quantidade < 4:
-        print("Senha invalida: poucos numeros")
-        return False
+    # elif quantidade < 4:
+    #     print("Senha invalida: poucos numeros")
+    #     return False
     
     else:
-        print("Senha Correta")
         return True
 
 # FUNCAO PARA VERIFICAR SE PRIMERO NUM > ULTIMO NUM 
 def Maior_Ultimo(senha):
     if senha[0] > senha[3]:
-        print("SENHA CORRETA" ) # STATUS DE LOG NO MAIN LOOP
-        return True
-    else:
-        print("SENHA INVALIDA: O primeiro numero < o ultimo")
         return False
+    else:
+        return True
 
 # FUNCAO PARA VERIFICAR A SOMA DOS NUMERO 
 def Somar_Senha(senha):
@@ -49,19 +45,15 @@ def Somar_Senha(senha):
     for i in senha:
         soma += i
         
-    if soma > 20: 
-        print(f"Senha invalida: A soma dos numeros > 20 [{soma}]")
+    if soma > 20 or soma < 20: 
         return False 
-    elif soma < 20:
-        print(f"Senha invalida: A soma dos nuero < 20 [{soma}]")
-        return False
+    
     else:
-        print("Senha Correta")
         return True
     
 # VERIFICAR SE O NUMERO E IGUAL 
 def Repetir_Numeros(senha):   
-    #memoria local para comparar 
+    
     vistos = []
     
     for numero in senha:
@@ -93,48 +85,57 @@ senha = []
 #TAL CONTADOR PARA VERIFICAR SE AS 4 VERIFICACOES FORAM ACEITAS
 contador = 0
 
-while contador != 4: 
-
+while contador !=4: 
     
     # ISSO AQUI GERAR 4 DIGITIOS E ADICIONAR NO ARRAY 
-    for i in range(4):
-        num = random.randint(0,9)
-        senha.append(num)
-        
-    print(senha)      
-        
-    
-    # ===== VERIFICAÇÃO DAS 4 PARTES ======
-    validador = (Contar_Digitos(senha))
-    if validador == False:
-        print("ERRO AQUI VOLTANDO")
-    else:
-        contador += 1
+        for i in range(4):
+            num = random.randint(0,9)
+            senha.append(num)
 
-    
-    print(validador)
-    validador = (Maior_Ultimo(senha))
-    if validador == False:
-        print("ERRO AQUI VOLTANDO")
-    else:
-        contador += 1
-    
-    
-    print(validador)
-    validador = (Somar_Senha(senha))
-    if validador == False:
-        print("ERRO AQUI VOLTANDO")
-    else:
-        contador += 1
-    
-    
-    print(validador)
-    validador = (Repetir_Numeros(senha))
-    if validador == False:
-        print("ERRO AQUI VOLTANDO")
-    else:
-        contador += 1
-    
-    #SE DER CERTO AQUI
-    print("SENHA EM FORMATO CORRETO: ")
-    break 
+        print(senha)     
+
+        while True :
+
+            # ===== VERIFICAÇÃO DAS 4 PARTES ======
+            validador = (Contar_Digitos(senha))
+            if validador == False:
+                print("SENHA INVALIDA: QUANTIDADE INCORRETA DE NUMEROS")
+                senha = []
+                break
+            else:
+                print("SENHA CORRETA: QUANTIDADE DE NUMERO CORRETA")
+                contador += 1
+            
+
+            validador = (Maior_Ultimo(senha))
+            if validador == False:
+                print("SENHA INVALIDA: PRIMEIRO < ULTIMO NUMERO")
+                senha = []
+                break
+            else:
+                print("SENHA CORRETA: O PRIMEIRO NUMERO > ULTIMO")
+                contador += 1
+            
+            
+            validador = (Somar_Senha(senha))
+            if validador == False:
+                print(f"SENHA INVALIDA: SOMA NÃO DÁ [20]")
+                senha = []
+                break
+            else:
+                print ("SENHA CORRETA: SOMA É IGUAL A [20]")
+                contador += 1
+
+
+            validador = (Repetir_Numeros(senha))
+            if validador == False:
+                print("SENHA INVALIDA: NUMEROS REPETIDOS INDENTIFICADOS")
+                senha =[]
+                break 
+            else:
+                print("SENHA CORRETA: NENHUM NUMERO REPETIDO INDENTIDICADO")
+                contador += 1
+        
+        if contador == 4:           
+            print("SENHA PASSOU PELOS 4 PARAMETROS")
+        break
