@@ -108,6 +108,7 @@ while contador != 4:
     validador = (Contar_Digitos(senha))
     if validador == False:
         print("ERRO AQUI VOLTANDO")
+        senha = []
     else:
         contador += 1
 
@@ -116,6 +117,7 @@ while contador != 4:
     validador = (Maior_Ultimo(senha))
     if validador == False:
         print("ERRO AQUI VOLTANDO")
+        senha = []
     else:
         contador += 1
     
@@ -124,6 +126,7 @@ while contador != 4:
     validador = (Somar_Senha(senha))
     if validador == False:
         print("ERRO AQUI VOLTANDO")
+        senha = []
     else:
         contador += 1
     
@@ -132,9 +135,9 @@ while contador != 4:
     validador = (Repetir_Numeros(senha))
     if validador == False:
         print("ERRO AQUI VOLTANDO")
+        senha = []
     else:
         contador += 1
     
     #SE DER CERTO AQUI
-    print("SENHA EM FORMATO CORRETO: ")
-    break 
+print("SENHA EM FORMATO CORRETO: ")
