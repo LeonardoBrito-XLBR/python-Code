@@ -8,10 +8,9 @@ import random
 # A SOMA PRECISA  DA 20 
 # NAO PODE SE REPETIR NUMEROS 
 
-# LISTAS = SERVEM COMO UMA VETOR DE NOMES, INT, OBJETOS, E TUDO MAIS 
 
-    
-    
+os.system("cls")    
+
 #FUNCAO PARA VERIFICAR O NUMERO MAXIMO DE DIGITADOS 
 def Contar_Digitos(senha):
     quantidade = 0
@@ -73,30 +72,28 @@ def Repetir_Numeros(senha):
 
 # ======= PRINCIPAL PROGRAMA ======== 
 
-# SENHA PARA TESTE
-# senhaZ = [11,3,4,2]
-
+# VARIAVEL PARA STATUS NAS FUNCOES 
 validador = True
-status = True
 
-# ===== LOOP PRINCIPAL DO PROGRANA =======
-
-#TAL CONTADOR PARA VERIFICAR SE AS 4 VERIFICACOES FORAM ACEITAS
+# VARIAVEL PARA CONTAR AS TENTATIVAS 
 contador = 0
  
+# SENHA VAZIA
 senha = []
 
-while True :
+
+#LOOP PARA TENTAR ATE ACERTAR 
+while True:
+    
+    print("")
+    
     # ISSO AQUI GERAR 4 DIGITIOS E ADICIONAR NO ARRAY 
     for i in range(4):
         num = random.randint(0,9)
         senha.append(num)
 
-    print(senha)     
-
-    
-    print(contador)
-
+    print(f" TESTANDO A SENHA: {senha}")     
+    #ACOMPANHAR CADA TENTATIVA
     # ===== VERIFICAÇÃO DAS 4 PARTES ======
     validador = (Contar_Digitos(senha))
     if validador == False:
@@ -136,5 +133,7 @@ while True :
         print("SENHA CORRETA: NENHUM NUMERO REPETIDO INDENTIDICADO")
         contador += 1
     
-    print(" SENHA CORRETA")
+    print("")
+    print(f"✅ SENHA ACEITA COM SUCESSSO {senha}")
+    print(f"🔥 NUMERO DE TENTATIVAS: {contador}")
     break
