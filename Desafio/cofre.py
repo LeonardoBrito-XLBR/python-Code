@@ -13,20 +13,15 @@ os.system("cls")
 
 #FUNCAO PARA VERIFICAR O NUMERO MAXIMO DE DIGITADOS 
 def Contar_Digitos(senha):
+    
     quantidade = 0
     
-    #LOOP PARA OS CONJUNTOS NUMERICOS
     for i in senha:
         quantidade += 1 
     
-    #VERIFICANDO CADA 
+
     if quantidade > 4: 
         return False
-     
-    # elif quantidade < 4:
-    #     print("Senha invalida: poucos numeros")
-    #     return False
-    
     else:
         return True
 
@@ -42,11 +37,10 @@ def Somar_Senha(senha):
     soma = 0
     
     for i in senha:
-        soma += i
+        soma += i 
         
     if soma > 20 or soma < 20: 
         return False 
-    
     else:
         return True
     
@@ -56,38 +50,24 @@ def Repetir_Numeros(senha):
     vistos = []
     
     for numero in senha:
-        
-        # se o numero ja existir no array
         if numero in vistos:
             print(f"SENHA INVALIDA [NUMERO REPETIDO]: {numero}")
             return False
         elif numero not in vistos:
-            # se nao existir, adicionar e comparar la em cima
             vistos.append(numero)
-            # print("ADICIONADO NO ARRAY")
     
-    # Se chegou aqui, nenhum repetido
+
     return True
 
 
 # ======= PRINCIPAL PROGRAMA ======== 
-
-# VARIAVEL PARA STATUS NAS FUNCOES 
 validador = True
 
-# VARIAVEL PARA CONTAR AS TENTATIVAS 
 contador = 0
- 
-# SENHA VAZIA
-senha = []
-
 
 #LOOP PARA TENTAR ATE ACERTAR 
-
-
 senhasValidas = []
 while len(senhasValidas) < 3:
-    
     print("")
     
     # SENHA VAZIA PARA CADA TENTATIVA
@@ -99,7 +79,8 @@ while len(senhasValidas) < 3:
         senha.append(num)
 
     print(f" TESTANDO A SENHA: {senha}")     
-    #ACOMPANHAR CADA TENTATIVA
+
+
     # ===== VERIFICAÇÃO DAS 4 PARTES ======
     validador = (Contar_Digitos(senha))
     if validador == False:
@@ -146,9 +127,6 @@ while len(senhasValidas) < 3:
     print(f"🔥 NUMERO DE TENTATIVAS: {contador}")
     
     senhasValidas.append(senha.copy())  # ADICIONA UMA COPIA PARA EVITAR REFERENCIAS COMPARTILHADAS
-    
-    
-    # REMOVIDO O BREAK PARA CONTINUAR ATÉ 3 SENHAS
 
 
 print("")
