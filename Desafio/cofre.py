@@ -83,9 +83,15 @@ senha = []
 
 
 #LOOP PARA TENTAR ATE ACERTAR 
-while True:
+
+
+senhasValidas = []
+while len(senhasValidas) < 3:
     
     print("")
+    
+    # SENHA VAZIA PARA CADA TENTATIVA
+    senha = []
     
     # ISSO AQUI GERAR 4 DIGITIOS E ADICIONAR NO ARRAY 
     for i in range(4):
@@ -107,7 +113,6 @@ while True:
     validador = (Maior_Ultimo(senha))
     if validador == False:
         print("SENHA INVALIDA: PRIMEIRO < ULTIMO NUMERO")
-        senha = []
         continue 
     else:
         print("SENHA CORRETA: O PRIMEIRO NUMERO > ULTIMO")
@@ -117,7 +122,6 @@ while True:
     validador = (Somar_Senha(senha))
     if validador == False:
         print(f"SENHA INVALIDA: SOMA NÃO DÁ [20]")
-        senha = []
         continue 
     else:
         print ("SENHA CORRETA: SOMA É IGUAL A [20]")
@@ -127,13 +131,27 @@ while True:
     validador = (Repetir_Numeros(senha))
     if validador == False:
         print("SENHA INVALIDA: NUMEROS REPETIDOS INDENTIFICADOS")
-        senha =[]
         continue  
     else:
         print("SENHA CORRETA: NENHUM NUMERO REPETIDO INDENTIDICADO")
         contador += 1
     
+    # VERIFICA SE A SENHA JÁ FOI ENCONTRADA ANTES (PARA EVITAR DUPLICATAS)
+    if senha in senhasValidas:
+        print("SENHA JÁ ENCONTRADA ANTES, IGNORANDO...")
+        continue
+    
     print("")
     print(f"✅ SENHA ACEITA COM SUCESSSO {senha}")
     print(f"🔥 NUMERO DE TENTATIVAS: {contador}")
-    break
+    
+    senhasValidas.append(senha.copy())  # ADICIONA UMA COPIA PARA EVITAR REFERENCIAS COMPARTILHADAS
+    
+    
+    # REMOVIDO O BREAK PARA CONTINUAR ATÉ 3 SENHAS
+
+
+print("")
+print("SENHAS VALIDAS ENCONTRADAS: ")
+for i, senha in enumerate(senhasValidas, start=1):
+    print(f"Senha {i}: {senha}")  # Exibe cada senha com um índice para clareza
